@@ -16,36 +16,6 @@ extern "C" void CopyIfLessThanOrEqual( double min,
                                    int * output_count,
                                    void* cuda_stream);
 
-/*
-struct LessThanOrEqual {
-  LessThanOrEqual(double min): x_min(min) {}
-
-  double x_min;
-
-  __host__ __device__
-  bool operator()(const double x) {
-    return (x <= x_min);
-  }
-};
-
-void CopyIfLessThanOrEqual(const double min,
-                           const int *const input,
-                           const int input_count,
-                           const double *const stencil,
-                           int *const output,
-                           int *const output_count,
-                           const void *const cuda_stream) {
-
-  int *end_pointer = thrust::copy_if(thrust::cuda::par.on((cudaStream_t)cuda_stream),
-                                     input,
-                                     input + input_count,
-                                     stencil,
-                                     output,
-                                     LessThanOrEqual(min));
-  *output_count = end_pointer - output;
-}
-*/
-
 int main(int argc, char **argv)
 {
   int count = 1000000;

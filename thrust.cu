@@ -34,7 +34,6 @@ extern "C" void CopyIfLessThanOrEqual(double min,
                                       void* cuda_stream) {
 
   int *end_pointer = thrust::copy_if(thrust::cuda::par.on((cudaStream_t)cuda_stream),
-//  int *end_pointer = thrust::copy_if(thrust::device,
                                      input,
                                      input + input_count,
                                      stencil,
