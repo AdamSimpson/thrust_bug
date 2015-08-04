@@ -23,6 +23,12 @@ struct LessThanOrEqual {
   }
 };
 
+extern "C" void printStreamFlags(void *stream) {
+  unsigned int flags;
+  cudaStreamGetFlags((cudaStream_t)stream, &flags);
+
+  printf("Flags %d, flags == cudaStreamNonBlocking: %d\n", flags, flags==cudaStreamNonBlocking);
+}
 
 // C wrapper function for thrust copy_if with LessThanOrEqual predicate
 extern "C" void CopyIfLessThanOrEqual(double min,
